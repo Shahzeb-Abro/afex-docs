@@ -1,7 +1,9 @@
 {
   "index_name": "afex-docs",
-  "start_urls": ["https://shahzeb-abro.github.io/docs/introduction/intro"],
-  "sitemap_urls": ["https://Shahzeb-Abro.github.io/afex-docs/sitemap.xml"],
+  "start_urls": [
+    "https://shahzeb-abro.github.io/afex-docs/docs/introduction/intro"
+  ],
+  "sitemap_urls": ["https://shahzeb-abro.github.io/afex-docs/sitemap.xml"],
   "stop_urls": [
     "https://shahzeb-abro.github.io/afex-docs/blog",
     "https://shahzeb-abro.github.io/afex-docs/page"
