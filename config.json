@@ -1,13 +1,13 @@
 {
   "index_name": "afex-docs",
-  "start_urls": [
-    "https://federicotartarini.github.io/docusaurus-example-youtube/"
-  ],
-  "sitemap_urls": [
-    "https://federicotartarini.github.io/docusaurus-example-youtube/sitemap.xml"
+  "start_urls": ["https://shahzeb-abro.github.io/docs/introduction/intro"],
+  "sitemap_urls": ["https://Shahzeb-Abro.github.io/afex-docs/sitemap.xml"],
+  "stop_urls": [
+    "https://shahzeb-abro.github.io/afex-docs/blog",
+    "https://shahzeb-abro.github.io/afex-docs/page"
   ],
   "sitemap_alternate_links": true,
-  "stop_urls": [],
+
   "selectors": {
     "lvl0": {
       "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
