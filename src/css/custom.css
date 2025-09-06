@@ -1,0 +1,522 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+
+@font-face {
+  font-family: "Plex Mono";
+  src: url(../../static/fonts/IBMPlexMono-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Plex Mono";
+  src: url(../../static/fonts/IBMPlexMono-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Plex Mono";
+  src: url(../../static/fonts/IBMPlexMono-SemiBold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(../../static/fonts/Inter-variable.ttf);
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(../../static/fonts/Inter-italic-variable.ttf);
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --color-active-nav-link: #f0f6f1;
+  --border-active-nav-link: #d1e7dd;
+  --article-background: #fff;
+  --toc-active: #000;
+  --diagonal-pattern-color: rgba(0, 0, 0, 0.05);
+
+  --ff-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --ff-mono: "Plex Mono", monospace;
+
+  --text-secondary: #364153;
+  --text-primary: oklch(13% 0.028 261.692);
+  --text-link: #525860;
+  --docsearch-searchbox-shadow: none;
+  --docsearch-searchbox-height: 56px;
+
+  --docsearch-bg: #fff;
+  --docsearch-border: #d1e7dd;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --color-active-nav-link: #0d1117;
+  --border-active-nav-link: #30363d;
+  --article-background: oklch(14.7% 0.004 49.25);
+  --toc-active: #fff;
+  --diagonal-pattern-color: rgba(255, 255, 255, 0.05);
+
+  --text-secondary: #d1d5dc;
+  --text-primary: #fff;
+  --surface-bg: #161b22;
+  --text-link: #fff;
+
+  --ifm-background-color: #0a0a0a;
+
+  --docsearch-searchbox-focus-background: #364153;
+
+  --docsearch-bg: #364153;
+  --docsearch-border: #444f61;
+}
+
+html[data-theme="dark"] {
+  background-color: rgb(12, 12, 12) !important;
+}
+
+body {
+  font-family: var(--ff-primary);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--ff-primary);
+  font-weight: 700;
+}
+
+.markdown h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.markdown h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.markdown h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  color: var(--text-primary);
+}
+
+.markdown p,
+.markdown li {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 28px;
+}
+
+.code-block-error-line {
+  background-color: #890a0a70;
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  border-left: 3px solid #ff0000f3;
+}
+
+.theme-code-block-highlighted-line {
+  background-color: #ffffff21;
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+.theme-doc-sidebar-menu .menu__list .menu_link {
+  font-size: 10px !important;
+}
+
+/* Sidebar styling  */
+.theme-doc-sidebar-container {
+  max-width: 250px;
+  background: var(--article-background);
+}
+
+.theme-doc-sidebar-menu.menu__list {
+  width: 100%;
+  max-width: calc(250px - 1rem);
+}
+/* 
+.menu__list-item {
+  font-size: 14px;
+}
+
+.menu__list-item .menu__link.menu__link--active,
+.menu__link--sublist .menu__link--active {
+  background-color: var(--color-active-nav-link);
+  border: 1px solid var(--border-active-nav-link);
+} */
+
+.menu__caret {
+  display: none;
+}
+
+/* #__docusaurus::after {
+  content: "Hello, World!";
+  background-color: red;
+  position: absolute;
+  right: 0;
+  top: 60px;
+} */
+.container::after {
+  content: "";
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 60px;
+  width: 100%; /* adjust as needed */
+  height: 100vh; /* adjust as needed */
+
+  background-image: repeating-linear-gradient(
+    -45deg,
+    /* diagonal angle */ var(--diagonal-pattern-color) 0px,
+    /* stripe color */ var(--diagonal-pattern-color) 1px,
+    /* stripe thickness */ transparent 1px,
+    /* gap start */ transparent 8px /* gap size */
+  );
+
+  background-size: cover;
+  pointer-events: none; /* so it doesn’t block clicks */
+  z-index: -1; /* push behind content if needed */
+}
+
+.container {
+  background-color: var(--article-background);
+  margin-left: 48px;
+  border-left: 1px solid var(--border-active-nav-link);
+  border-right: 1px solid var(--border-active-nav-link);
+}
+
+@media screen and (max-width: 996px) {
+  .container {
+    margin-left: 0;
+    border: none;
+  }
+}
+
+.theme-doc-toc-desktop::before {
+  content: "On this page";
+  width: 100%;
+  height: auto;
+  text-transform: uppercase;
+  font-family: var(--ff-mono);
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.table-of-contents {
+  padding: 0;
+}
+
+.table-of-contents li {
+  margin: 0;
+}
+
+.table-of-contents__link {
+  font-size: 14px;
+  width: 100%;
+  padding: 4px 8px;
+}
+
+.table-of-contents__link--active {
+  border-left: 1px solid var(--toc-active);
+  color: var(--toc-active);
+  font-weight: 600;
+}
+
+.table-of-contents li ul li {
+  margin-left: -8px;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.breadcrumbs .breadcrumbs__item:first-child {
+  display: none;
+}
+
+.breadcrumbs .breadcrumbs__item .breadcrumbs__link {
+  font-family: "Plex Mono";
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.breadcrumbs .breadcrumbs__item::after {
+  display: none;
+}
+
+.breadcrumbs__item.breadcrumbs__item--active .breadcrumbs__link {
+  /* font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -1px;
+  color: var(--text-primary);
+  font-family: var(--ff-primary);
+  padding: 0;
+  background-color: transparent;
+  text-transform: none; */
+  display: none;
+}
+
+.navbar {
+  box-shadow: none;
+  border-bottom: 1px solid var(--border-active-nav-link);
+  background-color: var(--article-background);
+}
+
+.menu__link--sublist {
+  font-family: var(--ff-mono);
+  font-size: 12px !important;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.theme-doc-sidebar-item-category .menu__list {
+  border-left: 1px solid var(--border-active-nav-link);
+  padding-left: 0px;
+  margin: 8px 0px;
+}
+
+.theme-doc-sidebar-item-category .menu__list .menu__link {
+  border-radius: 0;
+  color: var(--text-link);
+  font-size: 14px !important;
+  font-weight: 400;
+}
+
+.theme-doc-sidebar-item-category .menu__list .menu__link.menu__link--active {
+  border-left: 1px solid var(--toc-active);
+  background-color: transparent;
+  color: var(--toc-active);
+}
+
+.menu__list-item-collapsible .menu__link {
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.markdown code {
+  border: 1px solid var(--border-active-nav-link);
+  background: transparent;
+}
+
+.theme-code-block {
+  background: #161b22;
+  border-radius: 16px;
+}
+
+.theme-code-block div:first-child {
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  color: #dadada;
+  padding-bottom: 0;
+  border: none;
+}
+
+.theme-code-block div:nth-child(2) {
+  /* background-color: #161b22; */
+  padding: 8px;
+
+  border-radius: 10px;
+}
+
+.theme-code-block div:nth-child(2) pre code {
+  border: 1px solid hsl(215.4 16.3% 46.9%);
+}
+
+ul.tabs {
+  border-bottom: 1px solid var(--border-active-nav-link);
+}
+
+ul.tabs li {
+  font-family: var(--ff-primary);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border: none;
+  padding: 8px 16px;
+}
+
+ul.tabs li.tabs__item--active {
+  border-bottom: 2px solid var(--text-primary);
+  color: var(--text-primary);
+}
+
+/* Example for NOTE type */
+.theme-admonition.theme-admonition-note {
+  border-radius: 8px;
+  border-left: 5px solid hsl(220, 10%, 70%);
+  position: relative;
+  overflow: hidden;
+  background-color: hsl(219, 66%, 84%);
+  background-image: url(../../static/img/noisy-texture.png);
+}
+
+/* Minimal Tailwind-style table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Header */
+table th {
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+  border-right: none; /* 🚫 no vertical lines */
+}
+
+/* Body cells */
+table td {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+  border-right: none; /* 🚫 no vertical lines */
+  color: var(--ifm-font-color-base);
+}
+
+/* Remove border after last row */
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.pagination-nav__link {
+  border: none;
+  padding: 0;
+}
+
+.pagination-nav__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.pagination-nav__link:hover {
+  color: var(--text-primary);
+}
+
+.pagination-nav__sublabel {
+  display: none;
+}
+
+.markdown a {
+  color: var(--text-primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: #1fa588;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.DocSearch-Container {
+  backdrop-filter: blur(3px);
+}
+
+.DocSearch-Modal {
+  background-color: var(--docsearch-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.DocSearch-Button {
+  border: 1px solid var(--border-active-nav-link);
+}
+
+.DocSearch-Button-Placeholder {
+  display: none;
+}
+
+.DocSearch-Search-Icon {
+  margin-right: 10px;
+}
+
+.DocSearch-SearchBar {
+  padding: 0;
+}
+
+.DocSearch-Form {
+  border-radius: 0;
+  border-bottom: 1px solid var(--docsearch-border);
+}
+
+.DocSearch-Input {
+  font-size: 14px;
+}
+
+.DocSearch-Search-Icon {
+  width: 16px;
+  height: 16px;
+}
+
+.DocSearch-Footer {
+  background-color: var(--docsearch-bg);
+  box-shadow: none;
+  border-top: 1px solid var(--docsearch-border);
+}
+
+.DocSearch-Commands {
+  display: none;
+}
+
+.zoom-img {
+  border-radius: 10px;
+  border: 2px solid var(--border-active-nav-link);
+  z-index: 1000;
+}

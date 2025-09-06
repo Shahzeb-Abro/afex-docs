@@ -1,0 +1,60 @@
+---
+sidebar_position: 1
+title: Introduction
+---
+
+import CustomImage from "@site/src/components/CustomImage.jsx";
+import AddNewPricingScreen from "@site/static/img/WPS/add-new-pricing.png";
+
+Wage Protection System (WPS) is all about **salary processing** to employees of Domestic or Company Employees. Domestic employees are such as house help etc, and Company employees are those who work in some registered company/corporate.
+
+## Prerequisites
+
+- **Pricing Setup**: In this step you have to set some pricing and packages which customer (company or domestic) can select for WPS. This includes all the charges, VAT charges etc.
+- **Master Data Setup**: In this you have to define some configurations such as banks through which employees/individuals can get their salaries.
+- **Customer/Employee Onboarding**: In this step we onboard customers in our system, customer must be onboarded to use the services.
+
+## Pricing Setup
+
+Before onboarding a WPS Corporate, pricing package needs to be configured. So that corporate can select a suitable package in price settings tab.
+
+### Key fields and Screen flow
+
+1. **Tenure**: Time period within which package is applicable from its creation date. If 2 months is selected then package will be valid till 2 month after its creation.
+2. **Minimum Fee**: The fee cannot be less than this amount.
+3. **Standard Fee**: The actual fee of that package and not less than min fee.
+4. **Employee Count**: The standard fee applicable for the given employee count.
+5. **Out of Bundle charges**: If the employees are greater than the package employee count, then out of bundle fees will be applied on extra employees. e.g in case of SIF.
+6. **Free count**: If 2 is selected for _SIF UPLOAD_ case, then it means in this package, 2 sif processing are free for _corporate_.
+7. **Pricing Type**: For reference we have to look into Master Data setup.
+8. **Screen**: `Wage Protection System > Price Settings > Add Pricing Package`
+   {" "}
+   {" "}
+
+   <CustomImage image={AddNewPricingScreen} />
+
+:::info
+
+**Example**: Lets take an example like this is how a package is assigned:
+
+- File Upload Limit: 5
+- Out of Bundle Fee: 100 (If employees exceed employee count defined in package)
+- SIF (Salary Information File) upload fee: 100
+- Tenure: 5 months
+- 1st Month: 1 **SIF** uploaded, fee is **100**
+- 2nd Month: **5 SIFs**, file limit ended
+- 3rd Month: 6 -> 100+100(out of bundle fee)+disrbursement fees.
+- Free Count: No file upload fee till 3 files. Charges from 4th file
+
+:::
+
+## WPS Employee & Corporate Onboarding
+
+TODO: This is left blank for now, it will be filled later when we get more info
+
+## Master Data Setup
+
+When we do the funding in WPS using cheque or Online transfer, we need banks (corporate bank and deposit bank). These banks are configured in bank master.
+
+1. In bank master to onboard a corporate bank, we have to create a bank with local type and make sure to add its routing code.
+2. In bank master to onboard a deposit bank, we have to create a bank with local type and isDeposit checkbox check and make sure to add its routing code.
