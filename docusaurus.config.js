@@ -34,14 +34,14 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: "https://shahzebabro.github.io",
+  url: "https://shahzeb-abro.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/afex-docs/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "ShahzebAbro", // Usually your GitHub org/user name.
+  organizationName: "Shahzeb-Abro", // Usually your GitHub org/user name.
   projectName: "afex-docs", // Usually your repo name.
   trailingSlash: false, // Don't add a trailing slash to the end of URLs
 
