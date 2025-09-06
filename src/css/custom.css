@@ -515,6 +515,49 @@ table tbody tr:last-child td {
   display: none;
 }
 
+.DocSearch-Hit-source {
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 6px 16px;
+  width: 100%;
+}
+
+.DocSearch-Dropdown {
+  padding: 0;
+}
+
+.DocSearch-Hits {
+  padding: 0;
+  width: 100%;
+}
+
+.DocSearch-Hits ul {
+  display: flex;
+  gap: 0;
+  flex-direction: column;
+}
+
+.DocSearch-Hit-container {
+  border-bottom: 1px solid var(--docsearch-border);
+  padding: 0;
+  width: 100%;
+}
+
+.DocSearch-Hit {
+  padding-bottom: 0;
+  border-radius: 0;
+}
+
+.DocSearch-Hit a {
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--text-secondary);
+}
+
+.DocSearch-Hit a:first-child {
+  border-top: 1px solid var(--docsearch-border);
+}
+
 .zoom-img {
   border-radius: 10px;
   border: 2px solid var(--border-active-nav-link);
