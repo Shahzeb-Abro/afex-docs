@@ -5,7 +5,40 @@
 
 import CustomImage from "@site/src/components/CustomImage.jsx";
 import CreateNewSifScreen from "./img/create-new-sif.png";
+import StyledNumber from "@site/src/components/StyledNumber.jsx";
 
 Salary Information File (SIF) is a file, typically an excel file in which we have to insert the information of all the employees and their details who will be receiving salary for certain month.
 
 <CustomImage image={CreateNewSifScreen} />
+
+We have multiple options to create SIF.
+
+### 1. Using template
+
+We can download template by clicking on `Download SIF Template` button. It will download an excel file with all the proper column structure. We have to fill in all the employee details in that excel file and upload it.
+
+### 2. Using Recent SIF ACK
+
+We have recently ACKed file by CBUAE (Central Bank Of UAE) in the table present already, we can select it, click on proceed button and make changes in the file and use that file.
+
+### 3. Retrieving Previous Salary Record
+
+We also have a card with title `Retrieve Salary` in the screen where we can insert from date and to date and get specific SIF in that time period and update it if we want or we can just upload it without any updates if we don't need to.
+
+## Validations on SIF
+
+When we add records in Excel file or edit them and click `Done` button, then some validations are run for those records which are as:
+
+1. Establishment ID (MoL Code), Labour ID, Employee ID and everything is compared against onboarding records.
+2. If routing code is AFEx, it means salary of that employee will be disbursed by AFEx. Routing code is what helps us identify banks, AFEx has its own routing code as `121510101`.
+3. If routing code is of any other other bank (non-AFEx), then we have to provide IBAN detail of that particular employee, because here salary will be disbursed by some other bank.
+4. Leave days cannot be greater than 28.
+
+:::info
+
+If we save the SIF as draft, it will be expired in 15 days if not followed further.
+But if we click on **Done**, we store SIF header details in `SIF_MASTER` table.
+
+:::
+
+There is also an toggle named `By pass bank employee validation`, if that is checked then we don't perform the validation for those records whose Agent Routing Code is not of AFEx.

@@ -1,0 +1,15 @@
+---
+    sidebar_position: 2
+    title: Key Logic Involved
+---
+
+Some of the key logics are for Funding are as:
+
+1. A SIF funding is not marked as received if any of involving SIF has pending creation funding.
+2. FAT Request after approval appears for FAT commission funding.
+3. If funding involves cash mode, then amount is rounded up. In other modes it can be exact amount or rounded up. For example cash amount is 17.45 AED, then 17.50 is needed to be paid to AFEx. This is only for cash amount, for Card or Online Transfer no rounding is required. This is because we have change for .25, .50, .7 etc.
+4. It is mandatory to do corporate registration funding, before proceeding with any other funding of corporate.
+5. On one SIF, at a time either SIF or FAT Funding can be done.
+6. In case of cheque and online transfer, when cheque or OT is authorized, then fund and SIFs are marked as received using `RestTemplateService`.
+7. Each funding can involve multiple records. e.g one SIF funding can have multiple SIFs, but all SIFs should either belongs to same corporate of there must be parent or group company relationship. (Validation API at Proceed Button validates this case).
+8. `GetPricingInfo` API at Proceed Button calculates sif charges at run time.

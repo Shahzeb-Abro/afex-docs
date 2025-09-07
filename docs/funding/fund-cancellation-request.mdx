@@ -1,0 +1,12 @@
+---
+    sidebar_position: 3
+    title: Fund Cancellation Request
+---
+
+Only cash fund is allowed to be cancelled after received state. On fund cancellation, a request is generated first for maker checker. In the request we specify that we want refund with VAT and charges or without VAT and charges. Fund cancellation ends up in fund refund. Only two types of funds can be cancelled.
+
+### Fund types for cancellation
+
+**1. SIF Funding**: A SIF funding can be cancelled after received state only when all of its SIFs are not processed. If FTS is sent against any of the SIF in a fund, then that fund is not allowed to be cancelled.
+
+**2. NON WPS Funding**: A Non-WPS funding can be cancelled after received state. In this case, all Non-WPS files whose whole disbursement is pending or whose partial disbursement is pending can be refunded.

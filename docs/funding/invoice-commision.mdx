@@ -1,0 +1,10 @@
+---
+    sidebar_position: 4
+    title: Invoice Commision
+---
+
+When a corporate selects invoice billing in price settings tab at time of onboarding, it means corporate will provide all the AFEX commission at the month end like an invoice. So for an invoice customer, the charges/file upload fee/commission will automatically be added into invoice.
+
+Right now this concept is implemented only for SIF, FAT, PAF commission. This is incorporatef in place of `Negative commission` concept.
+
+Each commission row falls in **NEGATIVE COMMISSION TABLE** as a request. Then each request is mapped to an invoice as per the invoice tenure.

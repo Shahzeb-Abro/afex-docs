@@ -94,10 +94,10 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "AFEx Docs",
+        // title: "AFEx Docs",
         logo: {
           alt: "AFEx Logo",
-          src: "img/logo.svg",
+          src: "img/logo.png",
         },
         items: [
           {
@@ -112,7 +112,7 @@ const config = {
       prism: {
         theme: prismThemes.nightOwl,
         darkTheme: prismThemes.nightOwl,
-        additionalLanguages: ["java", "sql"],
+        additionalLanguages: ["java", "sql", "diff"],
         magicComments: [
           // Remember to extend the default highlight class name as well!
           {

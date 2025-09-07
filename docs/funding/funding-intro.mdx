@@ -1,0 +1,24 @@
+---
+    sidebar_position: 1
+    title: Funding Introduction
+---
+
+## Funding
+
+After the SIF has been created. We have to receive the funding from corporate. All fees comes from the pricing settings tab which the corporate has selected while onboarding.
+
+## Types of Funding
+
+There are 11 types of funding:
+
+1. **SIF Creation Funding**: Corporate or Individual are allowed to separately pay the sif creation/file upload fee and its VAT.
+2. **SIF Funding**: Here salary amount plus VAT (only commission VAT, salary VAT not included) plus disbursement fee/employee plus out of bundle fee (if employee count in SIF is greater than selected package) plus file upload fee (if not paid separately in sif creation fee / or if sif is not included in sif free count)plus servce charges are funded.
+3. **FAT Funding**: If the corporate directly goes to CBUAE to pay the amount and then come to AFEX with a FAT reference number. In this funding we only received the details. The funding goes for maker checker in FAT Approval request queue. When a fat funding is created, its details stores in Fund and fat details table. _FAT_FUND_DETAILS_ table stores fat request for back office approval.
+4. **FAT Comission Funding**: Every FAT funding has an associated FAT commission funding, where AFEx is only taking service charges + VAT. When a FAT request is approved, it is available for FAT funding commission funding. So a FAT commission fund contains many fund FAT fund request. On completion of FAT commission funding, associated SIFs go into funds received state.
+5. **Invoice Funding**: Here a corporate can select his invoices and pay the bill, [Refer to this](localhost:3000).
+6. **PAF Funding**: Requires when a third party PAF is arrived which is not on our SIF, so its commission is not collected at the time of SIF. That’s why we have to collect the commission in PAF funding type.
+7. **RFR Fee**: When RFR is created, this fee will be collected to process further, However, if the corporate set its RFR Processing fee to 0 in customer onboarding price setting tab, then this fee will be waived off automatically.
+8. **Non WPS Fee**: For Non-WPS files (Same as SIF).
+9. **Corporate Registration Fee**: Just registration fee and its VAT.
+10. **Employee salary statement fee funding**: This is not the one time fee. Every time the employee come to get his salary statement . He has to pay the statement fee.
+11. **Card issuance fee**: The Corporate pays the card issuance fee for its employees. For example, a corporate is onboarded with _10 employees_ and card issuance fee is _Rs 10_, so for 10 employees _10\*10=100 Rs_ card issuance fee will be paid by corporate. Now in future if one more employee is added in corporate, the corporate will only pay the fee for this employee only.

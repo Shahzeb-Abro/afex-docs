@@ -1,0 +1,141 @@
+---
+    sidebar_position: 2
+    title: Important Database Tables
+---
+
+## Structure
+
+Most of the WPS Tables have structure as below as per feature:
+
+**Parent Table** > **Child Table** (to store details of parent), **Status Log**, **Document table** (to store all documents related to that feature), **Mapping Table**.
+
+### SIF Tables
+
+1. **SIF_MASTER**: Parent table to store header details of SIF.
+2. **SIF_DETAILS**: Details of each SIF (its employees).
+3. **SIF_DOCUMENT**: All kind of SIF Document path link with its type (ACK/NAK/EXCEL).
+4. **SIF_STATUS_LOGS**: Status history of each SIF.
+5. **SIF_ERROR_DETAILS**: Stores NAK errors with error messages, parent id and detail id. Parent id is mandatory. if detail id is null, it means error is on parent id (whole SIF), otherwise error is on detail id (some employee).
+
+### Fund Tables
+
+1. **FUND**: Parent table to store header details of Fund.
+2. **SIF_FUND_DETAILS**: All types of fund details store here (not only SIF, don't be confused with the name). This is always one to one relation with fund. Stores break down of each amount in a fund (how much VAT, commission fee etc).
+3. **FUND_PAYMENT_DETAILS**: Fund table stores only cash, cheque, and OT amount. This table stores details of each funding like payment date, cheque number etc. Details filled in this table for cheque and OT when filled in link credit screen in Link Transaction.
+4. **FUND_STATUS_LOGS**: Status history of each fund.
+5. **FAT_FUND_DETAILS**: When a FAT funding created against a SIF, its data falls in Fund table and FAT fund details table (acting as FAT request table).
+6. **PAF_FUND_MAPPING**: Stores Funds and associated PAFs for PAF funding.
+7. **NON_WPS_FUND_MAPPING**: Non-WPS funds and associated Non-WPS files id for Non-WPS funding.
+8. **RFR_FUND_MAPPING**: RFR funds and associated RFR id for RFR funding.
+9. **CUSTOMER_REGISTRATION_FUND_MAPPING**: Includes fund details of customer registration.
+10. **EMPLOYEE_STATEMENT_FUND_MAPPING**: Statement fee fund and associated customer id of employee for statement fee funding.
+11. **NEGATIVE_COMMISSION_FUND_MAPPING**: Fund and associated negative commissions.
+12. **CARD_ISSUENACE_FUND_MAPPING** & **EMPLOYEE_CARD_ISSUEANCE_FUND_MAPPING**: Both tables store one kind of fund (card issuance fund) but in a different way. _CARD_ISSUEANCE_FUND_MAPPING_ stores fund against corporates and _EMPLOYEE_CARD_ISSUEANCE_FUND_MAPPING_ stores fund and associated employees for whom fee is paid.
+13. **FUND_CANCELLATION_REQUEST**: Stores fund cancel request and its approval details. The request to cancel a fund can be generated many time that's why it is a one to many separate table.
+14. **NEGATIVE_COMMISSION_REQUEST**: Table stores details of commission amount to be added in invoice in case in invoice customer.
+15. **INVOICE_NEGATIVE_COMMISSION_MAPPING**: Table stores mapping of negative commission request with an invoice based on invoice tenure on which request falls. This mapping helps custoemr knowing all of its invoices and its associated commissions.
+
+### FTS Tables
+
+1. **WPS_FTS**: Parent or header information of FTS.
+2. **WPS_FTS_DOCUMENT**: Stores all fts document path and with types (ACK/NAK).
+3. **FTS_ALLOCATION**: Stores the request to add the FTS limit and its approval.
+4. **FTS_ALLOCATION_UTILIZATION**: Stores utilized amount, remaining balance of each day.
+5. **FTS_STATUS_LOG**: Stores status history.
+6. **WPS_FTS_FUND_MAPPING**: TODO
+7. **FTS_FUND_SEQUENCE_MAPPING**: TODO
+8. **FTS_ERROR_DETAILS**: Stores NAK errors with error messgae, parent id and detail id. Parent id is mandatory. if detail id is null, it means error is on parent id, otherwise error is on detail id, same as SIF.
+
+### PAF Tables
+
+1. **PAF**: Stores parent information of the coming PAF.
+2. **PAF_DOCUMENT**: Stores PAF doc S3 bucket link.
+3. **PAF_DETAILS**: Stores details with in each PAF.
+4. **PAF_STATUS_LOG**: PAF status history.
+5. **PAF_DETAIL_UTILIZATION**: Stores how much amount is withdrawn / utilized from a particular paf detail.
+
+### PRC Tables
+
+1. **PRC**: Stores parent information of the coming PRC.
+2. **PRC_DOCUMENT**: Stores PRC doc S3 bucket link and doc types (ACK, NAK).
+3. **PRC_DETAILS**: Stores details with in each PRC.
+4. **PRC_STATUS_LOG**: PRC status history
+5. **PAF_PRC_SEQUENCE_MAPPING**: Stores PAF info send in a PRC as 1 PRC contains confirmation of many PAFs.
+6. **PRC_ERROR_DETAILS**: Stores NAK errors with error messgae, parent id and detail id. Parent id is mandatory. if detail id is null, it means error is on parent id, otherwise error is on detail id
+
+### Load Tables
+
+1. **LOAD**: Stores parent information of the sending Load.
+2. **LOAD_DOCUMENT**: Stores Load doc S3 bucket link and doc types (Rf1,Rj1).
+3. **LOAD_DETAILS** - Stores details with in each Load.
+4. **LOAD_STATUS_LOG**: Load status history.
+5. **LOAD_ERROR_DETAILS**: Stores NAK errors with error messgae, parent id and detail id. Parent id is mandatory. if detail id is null, it means error is on parent id, otherwise error is on detail id.
+
+### Salary Withdrawal Tables
+
+1. **SALARY_WITHDRAWAL**: Stores withdrawal information.
+2. **SALARY_WITHDRAWAL_DOCUMENT**: Stores receipt doc link which branch user uploaded after successful withdrawal.
+3. **SALARY_WITHDRAWAL_YCS_RESPONSE**: To be Added
+4. **SALARY_WITHDRAWAL_YCS_ERROR_RESPONSE**: To be Added
+
+### Pricing Setup Tables
+
+1. **WPS_PRICING_PACKAGE_SETUP**: Stores parent information of a pricing package.
+2. **WPS_PRICING_DETAILS**: Stores detail level info of each package.
+
+### Non WPS Tables
+
+1. **NON_WPS_DISBURSEMENT_MASTER**: Stores parent info of non wps file.
+2. **NON_WPS_DISBURSEMENT_DOCUMENT**: Stores non wps excel file S3 link.
+3. **NON_WPS_DISBURSEMENT_DETAILS**: Details within each non wps file.
+4. **NON_WPS_DISBURSEMENT_STATUS_LOG**: Status history logs
+
+### DCR Tables
+
+1. **DCR**: Stores DCR parent level Info
+2. **DCR_DETAILS**: Stores DCR detail level info.
+3. **DCR_DETAILS_ATTACHMENT**: Stores any document against each detail if uploaded from screen.
+4. **DCR_DOCUMENT**: Stores DCR doc its ack, nak info with S3 path.
+5. **DCR_STATUS_LOGS**: Status history.
+6. **DCR_ERROR_DETAILS**: Stores NAK errors with error messgae, parent id and detail id. Parent id is mandatory. if detail id is null, it means error is on parent id, otherwise error is on detail id.
+7. **DCR_LOAD_MAPPING**: TODO
+
+### DIF Tables
+
+1. **DIF**: Stores DIF file parent level Info.
+2. **DIF_DETAILS**: Stores Dif detail level info.
+3. **DIF_DOCUMENT**: Stores Dif doc its ack, nak info with S3 path.
+4. **DIF_STATUS_LOGS**: Status history.
+5. **DIF_ERROR_DETAILS**: Stores NAK errors with error messgae, parent id and detail id. Parent id is mandatory. if detail id is null, it means error is on parent id, otherwise error is on detail id.
+
+### Refund Tables
+
+1. **REFUND_REQUEST**: When refund is requested via credit, the request goes into this table . Stores all kinds of refund request.
+2. **REFUND_RECEIPT_DOCUMENT**: Stores the receipt path both in case of card or credit refund
+3. **RFR/RSU/RRI/RTC/RRR/RFA**: All tables habe same structure parent, details child, document, status log , error details. The other involving tables among these are (to be added later):
+
+`RSU_RFR_MAPPING`
+`RRR_RRI_DETAIL_MAPPING`
+`RRI_UNLOAD`
+`SIF_RTC_MAPPING`
+
+### JV Tables
+
+1. **JOURNAL_VOUCHER**: TODO
+2. **JOURNAL_VOUCHER_DETAILS**: TODO
+3. **JOURNAL_VOUCHER_HEADER**: TODO
+
+### MOHRE Tables
+
+1. **WPS_STATUS_INQUIRY**: To store response of Usecase 7
+2. **KAFKA_LOGGINGS**: Stores each request and response of MOHRE.
+3. **COMPANY_MOHRE**: Every time when mohre usecase 1 hits (check registration) for a company, this tables filled with the companies coming in response.
+4. **OWNER_MOHRE**: Every time when mohre usecase 1 hits (check registration) for a domestic, this tables filled with the response.
+
+### Other Tables
+
+1. **WPS_LOOKUP**: Store all the lookups for WPS. IS_USER_EDITABLE is the column that describe the lookup is configurable of not. ATTRIBUTE2 stores editable lookup input type (helpful for FE validations).
+2. **WPS_COMPLIANCE**: Those sif details that violated compliance rules falls in this table. (Ticket: AUS-2663: WPS -Compliance Rules Reopened)
+3. **EMPLOYEE_TRANSACTIONS**: TODO
+4. **YCS_CBUAE_REJECT_CODE_MAPPING**: TODO
+5. **YCS_CBUAE_CODE_MAPPING**: TODO

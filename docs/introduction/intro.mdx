@@ -58,3 +58,20 @@ When we do the funding in WPS using cheque or Online transfer, we need banks (co
 
 1. In bank master to onboard a corporate bank, we have to create a bank with local type and make sure to add its routing code.
 2. In bank master to onboard a deposit bank, we have to create a bank with local type and isDeposit checkbox check and make sure to add its routing code.
+
+You also need to insert following lines into you `application.properties` file for Kafka to work correctly.
+
+Remove following line:
+
+```java title="application.properties" showLineNumbers=172
+spring.kafka.bootstrap-servers=localhost:9092
+```
+
+And add following:
+
+```java title="application.properties"
+spring.kafka.bootstrap-servers=b-2.afexcruatkafkaclust.1ux2r9.c2.kafka.me-central-1.amazonaws.com:9096
+spring.kafka.properties.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="afex-cr-uat-msk" password="iudhw983yu2hd2dwqldk";
+spring.kafka.properties.sasl.mechanism=SCRAM-SHA-512
+spring.kafka.properties.security.protocol=SASL_SSL
+```

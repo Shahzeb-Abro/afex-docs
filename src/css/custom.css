@@ -130,6 +130,13 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
+.markdown h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .markdown h1,
 .markdown h2,
 .markdown h3 {
@@ -562,4 +569,49 @@ table tbody tr:last-child td {
   border-radius: 10px;
   border: 2px solid var(--border-active-nav-link);
   z-index: 1000;
+}
+
+.styled-number {
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.styled-number span {
+  color: var(--text-secondary);
+  font-size: 28px;
+}
+
+#docsearch-list[role="listbox"] {
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#docsearch-list[role="listbox"] .DocSearch-Hit a {
+  border: none;
+  border-top: none;
+  background: #4c5469;
+  border-radius: 8px;
+}
+
+#docsearch-list[role="listbox"] .DocSearch-Hit a:hover {
+  background: var(--ifm-color-primary);
+}
+
+#docsearch-list[role="listbox"] .DocSearch-Hit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  border-radius: 6px;
+  border: 1px solid currentColor;
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
 }
