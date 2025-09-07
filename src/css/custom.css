@@ -64,6 +64,7 @@
 
   --docsearch-bg: #fff;
   --docsearch-border: #d1e7dd;
+  --docsearch-hit-bg: #f3f5f9;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -93,6 +94,7 @@
 
   --docsearch-bg: #364153;
   --docsearch-border: #444f61;
+  --docsearch-hit-bg: #4c5469;
 }
 
 html[data-theme="dark"] {
@@ -596,12 +598,19 @@ table tbody tr:last-child td {
 #docsearch-list[role="listbox"] .DocSearch-Hit a {
   border: none;
   border-top: none;
-  background: #4c5469;
+  background: var(--docsearch-hit-bg);
+  box-shadow: none;
+  border: 1px solid var(--border-active-nav-link);
   border-radius: 8px;
 }
 
 #docsearch-list[role="listbox"] .DocSearch-Hit a:hover {
   background: var(--ifm-color-primary);
+}
+
+.DocSearch-Hit[aria-selected="true"] a {
+  background: var(--ifm-color-primary) !important;
+  color: #fff !important;
 }
 
 #docsearch-list[role="listbox"] .DocSearch-Hit-icon {
